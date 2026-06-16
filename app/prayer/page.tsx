@@ -3,8 +3,24 @@
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { prayerRequestCategories } from '@/lib/data';
-import { Heart, Send } from 'lucide-react';
+import { Heart, Send, Check, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import PageHero from '@/components/page-hero';
+import Reveal from '@/components/reveal';
+
+const prayerFeatures = [
+  'Confidential handling',
+  'Weekly prayer meetings',
+  'Community intercession',
+  'Dedicated prayer team',
+];
+
+const prayerSteps = [
+  'Your request is reviewed by our prayer coordinator',
+  'It is shared with our prayer team and circle',
+  'Intercessors pray specifically for your situation',
+  'Follow-up support and encouragement is provided',
+];
 
 export default function PrayerPage() {
   const [formData, setFormData] = useState({
@@ -35,21 +51,19 @@ export default function PrayerPage() {
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="bg-primary text-primary-foreground py-16 md:py-24">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Prayer Requests</h1>
-            <p className="text-xl opacity-90">Share your prayer requests and receive intercession from our community</p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Prayer Ministry"
+          title="Share Your Prayer Request"
+          subtitle="Our community is here to lift you up — submit a request and let us intercede with you."
+        />
 
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               {/* Prayer Form */}
-              <div className="lg:col-span-2">
-                <h2 className="text-2xl font-bold mb-8">Submit a Prayer Request</h2>
-                <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-border">
+              <Reveal className="lg:col-span-2">
+                <h2 className="font-display text-2xl font-semibold mb-8">Submit a Prayer Request</h2>
+                <form onSubmit={handleSubmit} className="space-y-6 glass-card p-6 sm:p-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold mb-2">Your Name</label>
@@ -59,7 +73,7 @@ export default function PrayerPage() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                        className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-dawn"
                         placeholder="Your name"
                       />
                     </div>
@@ -71,7 +85,7 @@ export default function PrayerPage() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                        className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-dawn"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -83,7 +97,7 @@ export default function PrayerPage() {
                       name="category"
                       value={formData.category}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                      className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-dawn"
                     >
                       {prayerRequestCategories.map((category) => (
                         <option key={category} value={category}>
@@ -101,7 +115,7 @@ export default function PrayerPage() {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+                      className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-dawn resize-none"
                       placeholder="Share your prayer request in detail..."
                     ></textarea>
                   </div>
@@ -113,7 +127,7 @@ export default function PrayerPage() {
                       name="isPublic"
                       checked={formData.isPublic}
                       onChange={handleChange}
-                      className="w-4 h-4 rounded cursor-pointer"
+                      className="w-4 h-4 rounded cursor-pointer accent-dawn"
                     />
                     <label htmlFor="isPublic" className="text-sm cursor-pointer">
                       Share with the prayer community (optional)
@@ -122,78 +136,68 @@ export default function PrayerPage() {
 
                   <button
                     type="submit"
-                    className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:opacity-90 transition flex items-center justify-center gap-2"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-dawn to-ember text-night py-3.5 font-semibold transition hover:-translate-y-0.5"
                   >
                     Submit Prayer Request <Send size={18} />
                   </button>
                 </form>
-              </div>
+              </Reveal>
 
               {/* Prayer Info Sidebar */}
               <div className="space-y-6">
-                <div className="bg-card p-6 rounded-lg border border-border">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Heart className="text-accent" size={28} />
-                    <h3 className="text-xl font-bold">Prayer Ministry</h3>
+                <Reveal delay={100}>
+                  <div className="glass-card p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-dawn to-ember text-night">
+                        <Heart size={20} />
+                      </span>
+                      <h3 className="font-display text-xl font-semibold">Prayer Ministry</h3>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      Our dedicated prayer team intercedes for every request submitted to our church. We
+                      believe in the power of prayer and the strength of community intercession.
+                    </p>
+                    <ul className="space-y-2 text-sm">
+                      {prayerFeatures.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2">
+                          <Check size={16} className="text-dawn mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-muted-foreground mb-4">
-                    Our dedicated prayer team intercedes for all prayer requests submitted to our church. We believe in the 
-                    power of prayer and the importance of community intercession.
-                  </p>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent font-bold">✓</span>
-                      <span>24/7 prayer coverage</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent font-bold">✓</span>
-                      <span>Confidential handling</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent font-bold">✓</span>
-                      <span>Weekly prayer meetings</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent font-bold">✓</span>
-                      <span>Community support</span>
-                    </li>
-                  </ul>
-                </div>
+                </Reveal>
 
-                <div className="bg-card p-6 rounded-lg border border-border">
-                  <h4 className="font-bold mb-4">How We Pray</h4>
-                  <ol className="space-y-3 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="font-bold text-accent flex-shrink-0">1.</span>
-                      <span>Your request is reviewed by our prayer coordinator</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="font-bold text-accent flex-shrink-0">2.</span>
-                      <span>Request is shared with our prayer team and circle</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="font-bold text-accent flex-shrink-0">3.</span>
-                      <span>Intercessors pray specifically for your situation</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="font-bold text-accent flex-shrink-0">4.</span>
-                      <span>Follow-up support and encouragement provided</span>
-                    </li>
-                  </ol>
-                </div>
+                <Reveal delay={150}>
+                  <div className="glass-card p-6">
+                    <h4 className="font-display font-semibold mb-4">How We Pray</h4>
+                    <ol className="space-y-3 text-sm text-muted-foreground">
+                      {prayerSteps.map((step, i) => (
+                        <li key={step} className="flex items-start gap-3">
+                          <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-dawn/20 text-xs font-bold text-dawn">
+                            {i + 1}
+                          </span>
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </Reveal>
 
-                <div className="bg-accent/10 border border-accent p-6 rounded-lg">
-                  <h4 className="font-bold mb-2">Pastoral Care Available</h4>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    For urgent prayer needs, please contact our pastoral care team directly.
-                  </p>
-                  <a
-                    href="/contact"
-                    className="text-accent font-semibold hover:opacity-80 transition text-sm inline-block"
-                  >
-                    Contact a Pastor →
-                  </a>
-                </div>
+                <Reveal delay={200}>
+                  <div className="glass-card border-dawn/30 p-6">
+                    <h4 className="font-display font-semibold mb-2">Pastoral Care Available</h4>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      For urgent prayer needs, please contact our pastoral care team directly.
+                    </p>
+                    <a
+                      href="/contact"
+                      className="text-dawn font-semibold hover:text-ember transition text-sm inline-flex items-center gap-1.5"
+                    >
+                      Contact a Pastor <ArrowRight size={14} />
+                    </a>
+                  </div>
+                </Reveal>
               </div>
             </div>
           </div>

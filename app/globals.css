@@ -4,10 +4,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ====================================================================
+   DESIGN TOKENS — "Dawn over the Hilltop"
+   A night-to-gold gradient narrative: deep indigo dusk gives way to
+   warm dawn light breaking over the ridge. Signature colors stay
+   constant across themes; surface colors flip between mist and night.
+   ==================================================================== */
+
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: var(--font-geist-sans), 'Geist Fallback';
+  --font-heading: var(--font-display);
+  --font-display: var(--font-fraunces), 'Iowan Old Style', 'Georgia', serif;
+  --font-sans: var(--font-jakarta), 'Segoe UI', system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -39,82 +48,112 @@
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
-  --radius-sm: calc(var(--radius) * 0.6);
+
+  /* Signature palette */
+  --color-dawn: var(--dawn);
+  --color-dawn-soft: var(--dawn-soft);
+  --color-ember: var(--ember);
+  --color-sage: var(--sage);
+  --color-night: var(--night);
+  --color-night-deep: var(--night-deep);
+
+  --radius-sm: calc(var(--radius) * 0.55);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-2xl: calc(var(--radius) * 1.9);
+  --radius-3xl: calc(var(--radius) * 2.4);
+  --radius-4xl: calc(var(--radius) * 3);
 }
 
 :root {
-  --background: oklch(0.98 0.001 270);
-  --foreground: oklch(0.18 0.01 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.01 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.01 250);
-  --primary: oklch(0.25 0.08 255);
-  --primary-foreground: oklch(0.98 0.001 270);
-  --secondary: oklch(0.95 0.05 50);
-  --secondary-foreground: oklch(0.25 0.08 255);
-  --muted: oklch(0.92 0.01 270);
-  --muted-foreground: oklch(0.45 0.02 255);
-  --accent: oklch(0.72 0.15 60);
-  --accent-foreground: oklch(0.18 0.01 250);
+  /* Signature accents — constant across themes */
+  --dawn: #e8b864;
+  --dawn-soft: #f6ddb0;
+  --ember: #e8927a;
+  --sage: #9fbbaa;
+  --night: #141b2e;
+  --night-deep: #0c1120;
+
+  /* Surface tokens — light mode ("morning mist") */
+  --background: #faf6f0;
+  --foreground: #1e2433;
+  --card: #ffffff;
+  --card-foreground: #1e2433;
+  --popover: #fffdfa;
+  --popover-foreground: #1e2433;
+  --primary: #1b2540;
+  --primary-foreground: #faf6f0;
+  --secondary: #f3e4cf;
+  --secondary-foreground: #1b2540;
+  --muted: #f1ece3;
+  --muted-foreground: #6d7080;
+  --accent: #e8b864;
+  --accent-foreground: #1b2540;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.93 0.01 270);
-  --input: oklch(0.93 0.01 270);
-  --ring: oklch(0.72 0.15 60);
-  --chart-1: oklch(0.25 0.08 255);
-  --chart-2: oklch(0.72 0.15 60);
-  --chart-3: oklch(0.45 0.02 255);
-  --chart-4: oklch(0.65 0.08 260);
-  --chart-5: oklch(0.80 0.10 55);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.25 0.08 255);
-  --sidebar-foreground: oklch(0.98 0.001 270);
-  --sidebar-primary: oklch(0.72 0.15 60);
-  --sidebar-primary-foreground: oklch(0.25 0.08 255);
-  --sidebar-accent: oklch(0.95 0.05 50);
-  --sidebar-accent-foreground: oklch(0.25 0.08 255);
-  --sidebar-border: oklch(0.35 0.05 255);
-  --sidebar-ring: oklch(0.72 0.15 60);
+  --border: #e9e2d4;
+  --input: #e9e2d4;
+  --ring: #e8b864;
+  --chart-1: #1b2540;
+  --chart-2: #e8b864;
+  --chart-3: #e8927a;
+  --chart-4: #9fbbaa;
+  --chart-5: #6d7080;
+  --radius: 1.125rem;
+  --sidebar: #1b2540;
+  --sidebar-foreground: #faf6f0;
+  --sidebar-primary: #e8b864;
+  --sidebar-primary-foreground: #1b2540;
+  --sidebar-accent: #232e4d;
+  --sidebar-accent-foreground: #faf6f0;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #e8b864;
+
+  /* Glass surfaces — light mode */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-strong: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-shadow: 0 20px 60px -25px rgba(27, 37, 64, 0.35);
 }
 
 .dark {
-  --background: oklch(0.12 0.01 250);
-  --foreground: oklch(0.95 0.01 270);
-  --card: oklch(0.18 0.01 250);
-  --card-foreground: oklch(0.95 0.01 270);
-  --popover: oklch(0.18 0.01 250);
-  --popover-foreground: oklch(0.95 0.01 270);
-  --primary: oklch(0.72 0.15 60);
-  --primary-foreground: oklch(0.18 0.01 250);
-  --secondary: oklch(0.35 0.05 255);
-  --secondary-foreground: oklch(0.95 0.01 270);
-  --muted: oklch(0.30 0.02 250);
-  --muted-foreground: oklch(0.65 0.02 260);
-  --accent: oklch(0.80 0.10 55);
-  --accent-foreground: oklch(0.18 0.01 250);
+  --background: #0c1120;
+  --foreground: #f4efe6;
+  --card: #161f36;
+  --card-foreground: #f4efe6;
+  --popover: #161f36;
+  --popover-foreground: #f4efe6;
+  --primary: #e8b864;
+  --primary-foreground: #1b2540;
+  --secondary: #232e4d;
+  --secondary-foreground: #f4efe6;
+  --muted: #1a2440;
+  --muted-foreground: #9aa3bf;
+  --accent: #e8927a;
+  --accent-foreground: #1b2540;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.25 0.02 250 / 40%);
-  --input: oklch(0.25 0.02 250 / 60%);
-  --ring: oklch(0.72 0.15 60);
-  --chart-1: oklch(0.72 0.15 60);
-  --chart-2: oklch(0.80 0.10 55);
-  --chart-3: oklch(0.65 0.08 260);
-  --chart-4: oklch(0.45 0.02 255);
-  --chart-5: oklch(0.25 0.08 255);
-  --sidebar: oklch(0.18 0.01 250);
-  --sidebar-foreground: oklch(0.95 0.01 270);
-  --sidebar-primary: oklch(0.72 0.15 60);
-  --sidebar-primary-foreground: oklch(0.18 0.01 250);
-  --sidebar-accent: oklch(0.80 0.10 55);
-  --sidebar-accent-foreground: oklch(0.18 0.01 250);
-  --sidebar-border: oklch(0.25 0.02 250 / 40%);
-  --sidebar-ring: oklch(0.72 0.15 60);
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #e8b864;
+  --chart-1: #e8b864;
+  --chart-2: #e8927a;
+  --chart-3: #9fbbaa;
+  --chart-4: #f4efe6;
+  --chart-5: #6d7aa3;
+  --sidebar: #0c1120;
+  --sidebar-foreground: #f4efe6;
+  --sidebar-primary: #e8b864;
+  --sidebar-primary-foreground: #1b2540;
+  --sidebar-accent: #1a2440;
+  --sidebar-accent-foreground: #f4efe6;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #e8b864;
+
+  /* Glass surfaces — dark mode */
+  --glass-bg: rgba(22, 31, 54, 0.55);
+  --glass-bg-strong: rgba(22, 31, 54, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-shadow: 0 20px 60px -25px rgba(0, 0, 0, 0.6);
 }
 
 @layer base {
@@ -126,5 +165,281 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+}
+
+/* ====================================================================
+   SCROLLBAR
+   ==================================================================== */
+
+html {
+  scrollbar-color: var(--dawn) transparent;
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--dawn), var(--ember));
+  border-radius: 999px;
+}
+
+/* ====================================================================
+   GLASS SURFACES
+   ==================================================================== */
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-2xl);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in oklab, var(--dawn) 45%, var(--glass-border));
+}
+
+/* ====================================================================
+   TYPOGRAPHY HELPERS
+   ==================================================================== */
+
+.text-gradient-dawn {
+  background: linear-gradient(115deg, var(--dawn) 0%, var(--ember) 55%, var(--sage) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 10s ease-in-out infinite;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* ====================================================================
+   AURORA / DAWN LIGHT BACKGROUND
+   ==================================================================== */
+
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aurora__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  will-change: transform;
+  opacity: 0.55;
+}
+
+@media (min-width: 768px) {
+  .aurora__orb {
+    filter: blur(90px);
+  }
+}
+
+.aurora__orb--dawn {
+  background: radial-gradient(circle at 30% 30%, var(--dawn) 0%, transparent 70%);
+  animation: drift-1 26s ease-in-out infinite alternate;
+}
+.aurora__orb--ember {
+  background: radial-gradient(circle at 70% 40%, var(--ember) 0%, transparent 70%);
+  animation: drift-2 32s ease-in-out infinite alternate;
+}
+.aurora__orb--sage {
+  background: radial-gradient(circle at 50% 70%, var(--sage) 0%, transparent 70%);
+  animation: drift-3 38s ease-in-out infinite alternate;
+}
+
+/* ====================================================================
+   HILL RIDGE DIVIDER
+   ==================================================================== */
+
+.hill-divider {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ====================================================================
+   3D TILT
+   ==================================================================== */
+
+.tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.tilt__inner {
+  transform: translateZ(28px);
+}
+
+/* ====================================================================
+   SCROLL REVEAL
+   ==================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====================================================================
+   PAGE TRANSITION
+   ==================================================================== */
+
+.page-enter {
+  animation: page-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ====================================================================
+   KEYFRAMES
+   ==================================================================== */
+
+@keyframes drift-1 {
+  0%   { transform: translate(-10%, -10%) scale(1); }
+  50%  { transform: translate(8%, 12%) scale(1.15); }
+  100% { transform: translate(-6%, 6%) scale(0.95); }
+}
+@keyframes drift-2 {
+  0%   { transform: translate(8%, -6%) scale(1.05); }
+  50%  { transform: translate(-10%, 10%) scale(0.9); }
+  100% { transform: translate(6%, -8%) scale(1.1); }
+}
+@keyframes drift-3 {
+  0%   { transform: translate(-6%, 8%) scale(1); }
+  50%  { transform: translate(10%, -8%) scale(1.1); }
+  100% { transform: translate(-8%, -4%) scale(0.95); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes page-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--dawn) 55%, transparent); }
+  70% { box-shadow: 0 0 0 12px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes sun-rise {
+  0% { transform: translateY(45%) scale(0.6); opacity: 0; }
+  60% { opacity: 1; }
+  100% { transform: translateY(0%) scale(1); opacity: 1; }
+}
+
+@keyframes ray-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wordmark-in {
+  0% { opacity: 0; letter-spacing: 0.5em; filter: blur(8px); }
+  100% { opacity: 1; letter-spacing: 0.32em; filter: blur(0); }
+}
+
+@keyframes fade-out-overlay {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes fade-in-slow {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1.5%, -1.5%); }
+}
+
+.animate-kenburns {
+  animation: kenburns 9s ease-out forwards;
+}
+
+.animate-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    color-mix(in oklab, var(--muted) 100%, transparent) 30%,
+    color-mix(in oklab, var(--dawn) 25%, var(--muted)) 50%,
+    color-mix(in oklab, var(--muted) 100%, transparent) 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.4s ease-in-out infinite;
+}
+
+/* ====================================================================
+   ACCESSIBILITY — reduced motion
+   ==================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

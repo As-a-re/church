@@ -175,3 +175,88 @@ export const directoryStaff = [
     phone: "0243971679",
   },
 ];
+
+// Photo gallery — drop real photos into /public/gallery using these
+// filenames and they'll automatically replace the placeholder artwork.
+export const galleryImages = [
+  {
+    src: "/gallery/worship.jpg",
+    alt: "The congregation worshipping together on a Sunday morning",
+    caption: "Sunday Celebration",
+    tag: "Worship · 8:30 AM",
+  },
+  {
+    src: "/gallery/bible-study.jpg",
+    alt: "Members gathered for Wednesday Bible study",
+    caption: "Bible Study",
+    tag: "Wednesdays · 7:00 PM",
+  },
+  {
+    src: "/gallery/prayer.jpg",
+    alt: "Members lifting their voices in prayer and song",
+    caption: "Prayer & Praise Night",
+    tag: "Fridays · 7:00 PM",
+  },
+  {
+    src: "/gallery/choir.jpg",
+    alt: "The choir ministering in song",
+    caption: "Choir Ministry",
+    tag: "Lifting every voice",
+  },
+  {
+    src: "/gallery/youth.jpg",
+    alt: "Youth fellowship gathering",
+    caption: "Youth Fellowship",
+    tag: "Growing in faith, together",
+  },
+  {
+    src: "/gallery/outreach.jpg",
+    alt: "Community outreach in Kwabenya",
+    caption: "Community Outreach",
+    tag: "Serving Kwabenya with love",
+  },
+];
+
+// Rotating scripture verses for the "Words to Live By" section.
+export const verses = [
+  {
+    text: "And ye shall know the truth, and the truth shall make you free.",
+    reference: "John 8:32",
+  },
+  {
+    text: "Ye are the light of the world... let your light so shine before men.",
+    reference: "Matthew 5:14, 16",
+  },
+  {
+    text: "Ye also, as lively stones, are built up a spiritual house.",
+    reference: "1 Peter 2:5",
+  },
+  {
+    text: "Love suffereth long, and is kind... love never faileth.",
+    reference: "1 Corinthians 13:4, 8",
+  },
+  {
+    text: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+    reference: "Matthew 11:28",
+  },
+];
+
+// Core pillars — derived from the church's "Worship, Fellowship and Service" tagline.
+export const corePillars = [
+  {
+    title: "Worship",
+    description: "Honest, heartfelt praise that lifts our eyes from the everyday to the eternal.",
+    icon: "Flame",
+  },
+  {
+    title: "Fellowship",
+    description: "A family that walks together — sharing life, laughter, prayer and burdens.",
+    icon: "Users",
+  },
+  {
+    title: "Service",
+    description: "Faith in motion: caring for Kwabenya and beyond with open hands and hearts.",
+    icon: "HandHeart",
+  },
+];
+

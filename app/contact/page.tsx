@@ -3,8 +3,10 @@
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { churchInfo, directoryStaff } from '@/lib/data';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useState } from 'react';
+import PageHero from '@/components/page-hero';
+import Reveal from '@/components/reveal';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -32,137 +34,144 @@ export default function ContactPage() {
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="bg-primary text-primary-foreground py-16 md:py-24">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-            <p className="text-xl opacity-90">We&apos;d love to hear from you</p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Get In Touch"
+          title="We'd Love To Hear From You"
+          subtitle="Whether it's a question, a prayer request, or just to say hello — reach out anytime."
+        />
 
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
               {/* Contact Info */}
-              <div>
-                <h2 className="text-2xl font-bold mb-8">Contact Information</h2>
+              <Reveal>
+                <h2 className="font-display text-2xl font-semibold mb-8">Contact Information</h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <MapPin className="text-accent flex-shrink-0 mt-1" size={24} />
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-dawn to-ember text-night">
+                      <MapPin size={20} />
+                    </span>
                     <div>
-                      <h4 className="font-bold mb-1">Location</h4>
-                      <p className="text-muted-foreground">{churchInfo.address}</p>
+                      <h4 className="font-display font-semibold mb-1">Location</h4>
+                      <p className="text-muted-foreground">Kwabenya, Accra &middot; {churchInfo.address}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Phone className="text-accent flex-shrink-0 mt-1" size={24} />
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-dawn to-ember text-night">
+                      <Phone size={20} />
+                    </span>
                     <div>
-                      <h4 className="font-bold mb-1">Phone</h4>
-                      <a href={`tel:${churchInfo.phone}`} className="text-accent hover:opacity-80 transition">
+                      <h4 className="font-display font-semibold mb-1">Phone</h4>
+                      <a href={`tel:${churchInfo.phone.split(' / ')[0]}`} className="text-dawn hover:text-ember transition">
                         {churchInfo.phone}
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Mail className="text-accent flex-shrink-0 mt-1" size={24} />
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-dawn to-ember text-night">
+                      <Mail size={20} />
+                    </span>
                     <div>
-                      <h4 className="font-bold mb-1">Email</h4>
-                      <a href={`mailto:${churchInfo.email}`} className="text-accent hover:opacity-80 transition">
+                      <h4 className="font-display font-semibold mb-1">Email</h4>
+                      <a href={`mailto:${churchInfo.email}`} className="text-dawn hover:text-ember transition break-all">
                         {churchInfo.email}
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mt-12 mb-6">Leadership</h3>
-                <div className="space-y-4">
+                <h3 className="font-display text-xl font-semibold mt-12 mb-6">Leadership</h3>
+                <div className="space-y-3">
                   {directoryStaff.slice(0, 3).map((staff) => (
-                    <div key={staff.id} className="bg-card p-4 rounded-lg border border-border">
-                      <p className="font-bold">{staff.name}</p>
+                    <div key={staff.id} className="glass-card p-4">
+                      <p className="font-semibold">{staff.name}</p>
                       <p className="text-sm text-muted-foreground">{staff.title}</p>
                     </div>
                   ))}
                 </div>
-              </div>
+              </Reveal>
 
               {/* Contact Form */}
-              <div className="lg:col-span-2">
-                <h2 className="text-2xl font-bold mb-8">Send us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Reveal delay={100} className="lg:col-span-2">
+                <div className="glass-card p-6 sm:p-10">
+                  <h2 className="font-display text-2xl font-semibold mb-8">Send Us a Message</h2>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold mb-2">Full Name</label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-dawn"
+                          placeholder="Your name"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold mb-2">Email</label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-dawn"
+                          placeholder="your@email.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold mb-2">Phone</label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-dawn"
+                          placeholder="024 XXX XXXX"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold mb-2">Subject</label>
+                        <input
+                          type="text"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-dawn"
+                          placeholder="Subject"
+                        />
+                      </div>
+                    </div>
+
                     <div>
-                      <label className="block text-sm font-semibold mb-2">Full Name</label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
+                      <label className="block text-sm font-semibold mb-2">Message</label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                        placeholder="Your name"
-                      />
+                        rows={6}
+                        className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-dawn resize-none"
+                        placeholder="Your message here..."
+                      ></textarea>
                     </div>
-                    <div>
-                      <label className="block text-sm font-semibold mb-2">Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold mb-2">Phone</label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                        placeholder="(555) 123-4567"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold mb-2">Subject</label>
-                      <input
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                        placeholder="Subject"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Message</label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent resize-none"
-                      placeholder="Your message here..."
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:opacity-90 transition"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
+                    <button
+                      type="submit"
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-dawn to-ember text-night py-3.5 font-semibold transition hover:-translate-y-0.5"
+                    >
+                      <Send size={18} />
+                      Send Message
+                    </button>
+                  </form>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>

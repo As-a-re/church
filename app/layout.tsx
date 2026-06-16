@@ -1,10 +1,26 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Fraunces, Plus_Jakarta_Sans, Geist_Mono } from 'next/font/google'
 import AIAssistant from '@/components/ai-assistant'
+import SplashIntro from '@/components/splash-intro'
+import PageTransition from '@/components/page-transition'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
+const fraunces = Fraunces({
+  variable: '--font-fraunces',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '900'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+})
+
+const jakarta = Plus_Jakarta_Sans({
+  variable: '--font-jakarta',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+})
+
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
@@ -24,9 +40,20 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#1a2d5e',
+  themeColor: '#141b2e',
   userScalable: true,
 }
+
+// Runs before paint to avoid a flash of the wrong theme.
+const themeInitScript = `
+(function () {
+  try {
+    var stored = localStorage.getItem('hilltop-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (theme === 'dark') document.documentElement.classList.add('dark');
+  } catch (e) {}
+})();
+`
 
 export default function RootLayout({
   children,
@@ -34,9 +61,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`bg-background ${geistSans.variable} ${geistMono.variable}`}>
+    <html
+      lang="en"
+      className={`bg-background ${fraunces.variable} ${jakarta.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="font-sans antialiased">
-        {children}
+        <SplashIntro />
+        <PageTransition>{children}</PageTransition>
         <AIAssistant />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
