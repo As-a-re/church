@@ -76,7 +76,7 @@ export const sermons = [
     scripture: "Mark 4:35-41",
     duration: "42 minutes",
     description: "Discover how faith in Christ sustains us through life's challenges.",
-    youtubeId: "dQw4w9WgXcQ",
+    youtubeId: "wr2CM48xKVY",
   },
   {
     id: 2,
@@ -86,7 +86,7 @@ export const sermons = [
     scripture: "1 Peter 2:4-10",
     duration: "38 minutes",
     description: "Understand your role in building God's kingdom as a living stone in His church.",
-    youtubeId: "jNQXAC9IVRw",
+    youtubeId: "wr2CM48xKVY",
   },
   {
     id: 3,
@@ -96,7 +96,7 @@ export const sermons = [
     scripture: "1 Corinthians 13:1-13",
     duration: "45 minutes",
     description: "Explore the transformative power of God's love in our lives and relationships.",
-    youtubeId: "9bZkp7q19f0",
+    youtubeId: "wr2CM48xKVY",
   },
 ];
 
