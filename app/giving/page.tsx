@@ -55,7 +55,7 @@ export default function GivingPage() {
                     </div>
                     <div className="mt-4 border-t border-border pt-4">
                       <p className="text-sm text-muted-foreground mb-1">Recipient</p>
-                      <p className="font-semibold">Church Finance Team</p>
+                      <p className="font-semibold">TopHill Church of Christ</p>
                     </div>
                   </div>
 

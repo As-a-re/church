@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { navigationLinks, churchInfo } from '@/lib/data';
 import ThemeToggle from '@/components/theme-toggle';
@@ -10,6 +10,7 @@ import SoundToggle from '@/components/sound-toggle';
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -35,24 +36,42 @@ export default function Header() {
               <path d="M0,30 C8,18 16,32 24,20 C30,12 36,24 40,18 L40,40 L0,40 Z" fill="var(--night-deep)" />
             </svg>
           </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-lg font-semibold tracking-wide">Hilltop</span>
-            <span className="eyebrow text-[0.6rem] opacity-60">Church of Christ</span>
+          <span className="flex flex-col leading-none items-center text-center">
+            <span className="font-display text-[1.11rem] font-semibold tracking-wide">Hilltop</span>
+            <span className="font-display text-[1.11rem] font-semibold">Church of Christ,</span>
+            <span className="font-display text-[1.11rem] font-semibold">Kwabenya</span>
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden lg:flex items-center gap-5">
           {navigationLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`group relative text-sm font-medium ${tone} transition-opacity hover:opacity-80`}
+              className={`group relative text-xs xl:text-sm font-medium ${tone} transition-opacity hover:opacity-80`}
             >
               {link.label}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-dawn transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setMoreOpen(!moreOpen)}
+              className={`inline-flex items-center gap-1 text-xs xl:text-sm font-medium ${tone} transition-opacity hover:opacity-80`}
+              aria-expanded={moreOpen}
+            >
+              More <ChevronDown size={14} className={`transition-transform ${moreOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {moreOpen && (
+              <div className="absolute right-0 top-8 w-48 rounded-2xl border border-border bg-background p-2 shadow-xl">
+                <Link href="/articles" onClick={() => setMoreOpen(false)} className="block rounded-xl px-3 py-2.5 text-sm text-foreground hover:bg-dawn/10 hover:text-dawn">Articles/COC News</Link>
+                <Link href="/sermon-flyers" onClick={() => setMoreOpen(false)} className="block rounded-xl px-3 py-2.5 text-sm text-foreground hover:bg-dawn/10 hover:text-dawn">Sermon Flyers</Link>
+                <Link href="/prayer" onClick={() => setMoreOpen(false)} className="block rounded-xl px-3 py-2.5 text-sm text-foreground hover:bg-dawn/10 hover:text-dawn">Prayer Requests</Link>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Right cluster */}
@@ -102,6 +121,8 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link href="/articles" onClick={() => setIsOpen(false)} className="rounded-xl px-3 py-2.5 text-sm font-medium text-foreground transition hover:bg-dawn/10 hover:text-dawn">Articles</Link>
+            <Link href="/sermon-flyers" onClick={() => setIsOpen(false)} className="rounded-xl px-3 py-2.5 text-sm font-medium text-foreground transition hover:bg-dawn/10 hover:text-dawn">Sermon Flyers</Link>
             <div className="mt-2 flex items-center justify-between border-t border-border/50 pt-4">
               <a href={`tel:${churchInfo.phone.split(' / ')[0]}`} className="text-sm text-muted-foreground hover:text-dawn">
                 {churchInfo.phone}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#000080"/>
+  <circle cx="600" cy="250" r="110" fill="#e8b864" opacity=".9"/>
+  <path d="M0 650 C220 500 350 690 540 540 C720 400 880 650 1200 450 L1200 800 L0 800 Z" fill="#0c1120"/>
+  <text x="600" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="54" fill="#fff">Sermon Flyer</text>
+  <text x="600" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#f6ddb0">Replace this placeholder with the church flyer</text>
+</svg>

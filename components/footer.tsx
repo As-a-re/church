@@ -86,6 +86,11 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
+              <ul className="mt-2.5 space-y-2.5 text-sm">
+                <li><Link href="/articles" className="text-white/70 transition hover:text-dawn">Articles/COC News</Link></li>
+                <li><Link href="/sermon-flyers" className="text-white/70 transition hover:text-dawn">Sermon Flyers</Link></li>
+                <li><Link href="/prayer" className="text-white/70 transition hover:text-dawn">Prayer Requests</Link></li>
+              </ul>
             </div>
 
             {/* Contact */}
@@ -118,7 +123,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className="glass flex h-9 w-9 items-center justify-center rounded-full text-white/80 transition hover:text-dawn hover:scale-105"
+                    className={`flex h-9 w-9 items-center justify-center rounded-full text-white transition hover:scale-110 ${social.name === 'Facebook' ? 'bg-[#1877F2]' : social.name === 'YouTube' ? 'bg-[#FF0000]' : 'bg-black'}`}
                   >
                     {social.icon}
                   </a>

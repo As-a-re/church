@@ -1,27 +1,27 @@
 export const churchInfo = {
-  name: "Church of Christ Hilltop",
+  name: "Church of Christ Hilltop, Kwabenya",
   tagline: "Worship, Fellowship and Service",
   email: "hilltopcocgh@gmail.com",
   phone: "0244171458 / 0545015488",
   address: "GW-0547-9006",
   service: "Sundays: Celebration of the Lord's Day (8:30 AM - 11:00 AM) | Wednesdays: Bible Studies (7:00 PM - 8:00 PM) | Fridays: Prayers/Songs (7:00 PM - 8:00 PM)",
-  aboutUs: "Church of Christ Hilltop is a welcoming community dedicated to spreading the Gospel, fostering spiritual growth, and serving our neighbors with love and compassion.",
+  aboutUs: "Church of Christ Hilltop, Kwabenya is a welcoming community dedicated to spreading the Gospel, fostering spiritual growth, and serving our neighbors with love and compassion.",
 };
 
 export const navigationLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/events", label: "Events" },
+  { href: "/ministries", label: "Ministries" },
   { href: "/sermons", label: "Sermons" },
   { href: "/worship", label: "Live Worship" },
-  { href: "/prayer", label: "Prayer Requests" },
   { href: "/giving", label: "Giving" },
   { href: "/contact", label: "Contact" },
   { href: "/directory", label: "Directory" },
 ];
 
 export const heroContent = {
-  title: "Welcome to Church of Christ Hilltop",
+  title: "Welcome to Church of Christ Hilltop, Kwabenya",
   subtitle: "A place of faith, community, and spiritual growth",
   description: "\"And you shall know the truth and the truth shall set you free\" - John 8:32. Join us on your spiritual journey as we worship together, grow in faith, and serve our community with compassion and dedication.",
   primaryCta: "Join Our Community",
@@ -34,7 +34,7 @@ export const events = [
     title: "Celebration of the Lord's Day",
     date: "Every Sunday",
     time: "8:30 AM - 11:00 AM",
-    location: "Main Sanctuary",
+    location: "Church Auditorium",
     description: "Join us for our Sunday celebration with worship, prayer, and teaching.",
     image: "/images/worship.jpg",
   },
@@ -43,7 +43,7 @@ export const events = [
     title: "Bible Studies",
     date: "Every Wednesday",
     time: "7:00 PM - 8:00 PM",
-    location: "Fellowship Hall",
+    location: "Church Auditorium",
     description: "Deepen your understanding of Scripture through interactive Bible study and discussion.",
     image: "/images/bible-study.jpg",
   },
@@ -52,7 +52,7 @@ export const events = [
     title: "Prayers/Songs",
     date: "Every Friday",
     time: "7:00 PM - 8:00 PM",
-    location: "Main Sanctuary",
+    location: "Church Auditorium",
     description: "A time of prayer and worship through songs, lifting our hearts together.",
     image: "/images/prayer.jpg",
   },
@@ -71,22 +71,22 @@ export const sermons = [
   {
     id: 1,
     title: "Faith in the Storm",
-    preacher: "Preacher Obeng Asare",
+    preacher: "George Obeng Asare (Minister)",
     date: "2026-06-07",
     scripture: "Mark 4:35-41",
     duration: "42 minutes",
     description: "Discover how faith in Christ sustains us through life's challenges.",
-    youtubeId: "dQw4w9WgXcQ",
+    youtubeId: "wr2CM48xKVY",
   },
   {
     id: 2,
     title: "Living as Living Stones",
-    preacher: "Preacher Christopher",
+    preacher: "Christopher Agawu (Minister)",
     date: "2026-05-02",
     scripture: "1 Peter 2:4-10",
     duration: "38 minutes",
     description: "Understand your role in building God's kingdom as a living stone in His church.",
-    youtubeId: "jNQXAC9IVRw",
+    youtubeId: "wr2CM48xKVY",
   },
   {
     id: 3,
@@ -96,7 +96,64 @@ export const sermons = [
     scripture: "1 Corinthians 13:1-13",
     duration: "45 minutes",
     description: "Explore the transformative power of God's love in our lives and relationships.",
-    youtubeId: "9bZkp7q19f0",
+    youtubeId: "wr2CM48xKVY",
+  },
+];
+
+
+export const ministries = [
+  { title: "Evangelism", description: "Sharing the Gospel and helping others discover the message of Christ." },
+  { title: "Edification", description: "Building up the church through teaching, fellowship, encouragement, and spiritual growth." },
+  { title: "Finance", description: "Supporting responsible stewardship and the financial needs of the church's work." },
+  { title: "Welfare/Benevolence", description: "Providing practical care, compassion, and support to members and people in need." },
+  { title: "Youth", description: "Helping young people grow in faith, character, fellowship, and service." },
+  { title: "Women", description: "Encouraging women through fellowship, Bible study, service, and spiritual development." },
+  { title: "Men", description: "Equipping men to lead, serve, encourage one another, and strengthen their families." },
+  { title: "Children", description: "Nurturing children with Bible teaching, care, and age-appropriate Christian activities." },
+  { title: "Visitation", description: "Reaching out to members and families through visits, encouragement, and pastoral care." },
+  { title: "Prayer", description: "Creating opportunities for the church to seek God together through prayer and intercession." },
+  { title: "Singing", description: "Leading the congregation in heartfelt singing and praise during worship and fellowship." },
+  { title: "Media", description: "Using photography, video, livestreaming, and digital media to share the church's message." },
+  { title: "Estates/Assets", description: "Caring for church facilities, property, equipment, and other physical resources." },
+];
+
+export const sermonFlyers = [
+  { id: 1, title: "Sunday Sermon", subtitle: "Add the latest sermon flyer here", image: "/sermon-flyers/placeholder.svg" },
+  { id: 2, title: "Bible Study", subtitle: "Add a Bible study flyer here", image: "/sermon-flyers/placeholder.svg" },
+  { id: 3, title: "Special Programme", subtitle: "Add a special programme flyer here", image: "/sermon-flyers/placeholder.svg" },
+];
+
+export const articles = [
+  {
+    id: 1,
+    title: "Ten Ps for Achievement",
+    category: "Church Articles",
+    intro: "Every year, people set goals and look for practical ways to make meaningful progress. Achievement requires more than good intentions; it calls for purposeful habits, discipline, preparation, and consistent action.",
+    sourceUrl: "https://church-of-christ-norwich.odoo.com/blog/church-articles-4/ten-ps-for-achievement-in-the-new-year-24",
+  },
+];
+
+export const cocNews = [
+  {
+    id: 1,
+    title: "Church Family Update",
+    date: "Add date",
+    category: "Church News",
+    summary: "Share important updates, announcements, and highlights from the Church of Christ Hilltop, Kwabenya community.",
+  },
+  {
+    id: 2,
+    title: "Ministry Highlights",
+    date: "Add date",
+    category: "Ministry News",
+    summary: "Use this space to highlight what is happening across our ministries and celebrate the work being done for the Lord.",
+  },
+  {
+    id: 3,
+    title: "Upcoming Church Activities",
+    date: "Add date",
+    category: "Announcements",
+    summary: "Post announcements about upcoming programmes, special services, outreach activities, and other church activities here.",
   },
 ];
 
@@ -141,34 +198,41 @@ export const faqItems = [
 export const directoryStaff = [
   {
     id: 1,
-    name: "Preacher Obeng Asare",
-    title: "Lead Preacher",
+    name: "George Obeng Asare (Minister)",
+    title: "Preacher",
     email: "hilltopcocgh@gmail.com",
     phone: "0244171458",
   },
-  {
+    {
     id: 2,
-    name: "Bismark Asare",
-    title: "Church Administrator",
+    name: "Christopher Agawu (Minister)",
+    title: "Edification Ministry Lead",
     email: "hilltopcocgh@gmail.com",
-    phone: "0545015488",
+    phone: "0243021862",
   },
   {
     id: 3,
-    name: "Preacher Conrad Kakraba",
+    name: "Conrad Kakraba (Minister)",
     title: "Media Team Lead",
     email: "hilltopcocgh@gmail.com",
     phone: "0549572991",
   },
   {
     id: 4,
+    name: "Bismark Asare",
+    title: "Church Administrator",
+    email: "hilltopcocgh@gmail.com",
+    phone: "0545015488",
+  },
+  {
+    id: 5,
     name: "Doreen Obeng Asare",
     title: "Children's Ministry",
     email: "hilltopcocgh@gmail.com",
     phone: "0243470652",
   },
   {
-    id: 5,
+    id: 6,
     name: "Mary Boateng",
     title: "Youth Ministry",
     email: "hilltopcocgh@gmail.com",

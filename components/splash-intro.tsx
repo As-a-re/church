@@ -112,7 +112,7 @@ export default function SplashIntro() {
           className="font-display mt-2 text-4xl sm:text-6xl font-semibold text-white"
           style={{ animation: 'wordmark-in 1.2s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both', letterSpacing: '0.32em' }}
         >
-          HILLTOP
+          HILLTOP, Kwabenya
         </span>
         <span
           className="mt-6 text-xs text-white/40 opacity-0"

@@ -124,7 +124,7 @@ export default function HomePage() {
 
             <Reveal delay={150} className="mt-20 grid grid-cols-1 gap-10 rounded-3xl border border-border bg-card/40 p-10 sm:grid-cols-3">
               <StatCounter value={3} label="Weekly Gatherings" />
-              <StatCounter value={5} label="Ministry Teams" />
+              <StatCounter value={12} label="Ministry Teams" />
               <StatCounter value={100} suffix="%" label="Open To Everyone" />
             </Reveal>
           </div>

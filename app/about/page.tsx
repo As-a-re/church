@@ -64,7 +64,7 @@ export default function AboutPage() {
                 <p className="eyebrow text-dawn mb-4">Who We Are</p>
                 <h2 className="font-display text-3xl md:text-4xl font-semibold mb-6">A family rooted in faith</h2>
                 <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-                  Church of Christ Hilltop is a welcoming community in Kwabenya, dedicated to spreading the
+                  Church of Christ Hilltop, Kwabenya is a welcoming community in Kwabenya, dedicated to spreading the
                   Gospel, fostering spiritual growth, and serving our neighbors with love and compassion.
                 </p>
                 <p className="text-lg text-muted-foreground mb-4 leading-relaxed">

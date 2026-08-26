@@ -72,16 +72,16 @@
   --dawn-soft: #f6ddb0;
   --ember: #e8927a;
   --sage: #9fbbaa;
-  --night: #141b2e;
-  --night-deep: #0c1120;
+  --night: #14145f;
+  --night-deep: #0c0c4e;
 
   /* Surface tokens — light mode ("morning mist") */
   --background: #faf6f0;
-  --foreground: #1e2433;
+  --foreground: #000080;
   --card: #ffffff;
-  --card-foreground: #1e2433;
+  --card-foreground: #000080;
   --popover: #fffdfa;
-  --popover-foreground: #1e2433;
+  --popover-foreground: #000080;
   --primary: #1b2540;
   --primary-foreground: #faf6f0;
   --secondary: #f3e4cf;

@@ -194,7 +194,7 @@ export default function PrayerPage() {
                       href="/contact"
                       className="text-dawn font-semibold hover:text-ember transition text-sm inline-flex items-center gap-1.5"
                     >
-                      Contact a Pastor <ArrowRight size={14} />
+                      Contact a Minister <ArrowRight size={14} />
                     </a>
                   </div>
                 </Reveal>
