@@ -1,11 +1,11 @@
 export const churchInfo = {
-  name: "Church of Christ Hilltop, Kwabenya",
+  name: "Church of Christ Hilltop KWABENYA",
   tagline: "Worship, Fellowship and Service",
   email: "hilltopcocgh@gmail.com",
   phone: "0244171458 / 0545015488",
   address: "GW-0547-9006",
   service: "Sundays: Celebration of the Lord's Day (8:30 AM - 11:00 AM) | Wednesdays: Bible Studies (7:00 PM - 8:00 PM) | Fridays: Prayers/Songs (7:00 PM - 8:00 PM)",
-  aboutUs: "Church of Christ Hilltop, Kwabenya is a welcoming community dedicated to spreading the Gospel, fostering spiritual growth, and serving our neighbors with love and compassion.",
+  aboutUs: "Church of Christ Hilltop KWABENYA is a welcoming community dedicated to spreading the Gospel, fostering spiritual growth, and serving our neighbors with love and compassion.",
 };
 
 export const navigationLinks = [
@@ -21,7 +21,7 @@ export const navigationLinks = [
 ];
 
 export const heroContent = {
-  title: "Welcome to Church of Christ Hilltop, Kwabenya",
+  title: "Welcome to Church of Christ Hilltop KWABENYA",
   subtitle: "A place of faith, community, and spiritual growth",
   description: "\"And you shall know the truth and the truth shall set you free\" - John 8:32. Join us on your spiritual journey as we worship together, grow in faith, and serve our community with compassion and dedication.",
   primaryCta: "Join Our Community",
@@ -139,7 +139,7 @@ export const cocNews = [
     title: "Church Family Update",
     date: "Add date",
     category: "Church News",
-    summary: "Share important updates, announcements, and highlights from the Church of Christ Hilltop, Kwabenya community.",
+    summary: "Share important updates, announcements, and highlights from the Church of Christ Hilltop KWABENYA community.",
   },
   {
     id: 2,
