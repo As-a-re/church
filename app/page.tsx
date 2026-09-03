@@ -40,7 +40,7 @@ export default function HomePage() {
           <div className="relative z-10 container mx-auto px-4 pt-32 pb-28 md:pt-44 md:pb-36">
             <div className="mx-auto max-w-4xl text-center">
               <p className="eyebrow text-dawn mb-5 animate-float">
-                Church of Christ · Hilltop KWABENYA
+                Church of Christ · Hilltop Kwabenya
               </p>
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-semibold leading-[1.08]">
                 Where Faith
